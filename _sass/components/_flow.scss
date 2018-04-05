@@ -1,0 +1,67 @@
+// Flow
+// ====
+
+.flow {
+  @include reset-list;
+  @include compact;
+
+  @media #{$full} {
+    display: table;
+    left: size(spacing) * -3;
+    position: relative;
+    table-layout: fixed;
+    width: scalc("100% + #{size(spacing) * 3}");
+  }
+}
+
+.flow > * {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  
+  @media #{$full} {
+    display: table-cell;
+    padding-left: size(spacing) * 3;
+    max-width: none;
+    vertical-align: top;
+  }
+  
+  + * {
+    padding-top: size(spacing) * 3;
+
+    @media #{$full} {
+      padding-top: 0;
+    }
+
+    &::before {
+      background: url("../img/icons/flow.svg") no-repeat center center;
+      background-size: 100% auto;
+      height: size(ms(2));
+      content: '';
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%) rotate(90deg);
+      top: size(spacing);
+      width: size(ms(2));
+      
+      @media #{$full} {
+        height: 100%;
+        left: size(spacing);
+        top: auto;
+        transform: none;
+      }
+    }
+  }
+
+  > figure {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.flow--diagram {
+  > *::before {
+    background-image: url("../img/icons/diagram.svg");
+  }
+}

@@ -1,0 +1,23 @@
+// Media
+// =====
+
+.media {
+  display: block;
+  
+  @include clearfix;
+  @include flush;
+}
+
+.media__aside {
+  float: left;
+  margin-right: size(spacing);
+
+  > img {
+    display: block;
+  }
+}
+
+.media__body {
+  overflow: hidden;
+  display: block;
+}

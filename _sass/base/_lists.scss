@@ -1,0 +1,26 @@
+// Lists
+// =====
+
+%list, ol, ul {
+  padding-left: size(spacing);
+  margin-left: 0;
+
+  @media #{$full} {
+    padding-left: size(spacing) * 2;
+  }
+  
+  > li {
+    > figure {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+}

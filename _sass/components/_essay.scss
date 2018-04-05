@@ -1,0 +1,50 @@
+// Essay
+// =====
+
+.essay {
+  @include flush;
+
+  padding-bottom: size(xxlarge);
+  padding-top: size(xxlarge);
+  
+  section {
+    @include clearfix;
+
+    > header {
+      page-break-after: avoid;
+    }
+
+    ul:not([class]), ol:not([class]) {
+      @include vertical(size(spacing) / 2);
+    }
+  }
+}
+
+.essay__footer {
+  padding-bottom: size(xxlarge);
+  padding-top: size(xxlarge);
+}
+  
+.essay__section {
+  border-bottom: 2px solid #ECECEC;
+  padding-bottom: size(xxxlarge);
+  padding-top: size(xxlarge);
+
+  > header {
+    @include trailing(size(xxlarge));
+  }
+}
+
+.essay__subsection {
+  @include leading(size(xlarge));
+
+  > header {
+    @include trailing(size(large));
+  }
+}
+
+.essay__subsubsection {
+  > header {
+    @include trailing(size(base));
+  }
+}

@@ -1,0 +1,25 @@
+// TOC
+// ===
+
+.toc {
+  border-bottom: 2px solid #ECECEC;
+  border-top: 2px solid #ECECEC;
+  padding-bottom: size(xxxlarge);
+  padding-top: size(xxlarge);
+
+  @include leading(size(xxlarge));
+
+  > li {
+    ol {
+      list-style-type: decimal;
+    }
+
+    a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    > a {
+      @extend %h5;
+    }
+  }
+}

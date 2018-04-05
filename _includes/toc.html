@@ -1,0 +1,19 @@
+{% assign sections = include.t | remove_first: '|' |split: '|' %}
+<ol class="toc essay__section">
+  {% for section in sections %}
+    {% assign dict = section | split: ':' %}
+    {% assign title = dict | first %}
+    {% assign s = forloop.index %}
+    {% assign subsections = dict | last | remove_first: '--' | split: '--' %}
+    <li><a href="#{{ s }}">{{ title }}</a>
+      {% if dict.size > 1 %}
+        <ol>
+        {% for subsection in subsections %}
+          {% assign ss = forloop.index %}
+          <li><a href="#{{ s }}.{{ ss }}">{{ subsection }}</a></li>
+        {% endfor %}        
+        </ol>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>

@@ -1,0 +1,171 @@
+sam_home:
+  src: img/sam-home.png
+  caption: Sam's home screen
+
+calm_home:
+  src: img/calm-home.png
+  caption: Calm's home screen
+
+calm_program:
+  src: img/calm-program.png
+  caption: Calm's "7 Days of Calm" program
+
+relaxation_reminder:
+  src: img/relaxation-reminder.png
+  caption: Relaxation reminder screen
+
+reflection_reminder:
+  src: img/reflection-reminder.png
+  caption: Reflection reminder screen
+
+learn_wireframe:
+  src: img/wireframes/learn.jpg
+  caption: Learn wireframe
+  type: wireframe
+
+relax_wireframe:
+  src: img/wireframes/relax.jpg
+  caption: Relax wireframe
+  type: wireframe
+
+reflect_wireframe:
+  src: img/wireframes/reflect.jpg
+  caption: Reflect wireframe
+  type: wireframe
+
+learn:
+  src: img/learn.png
+  caption: Learn tab
+
+relax:
+  src: img/relax.png
+  caption: Relax tab
+
+reflect:
+  src: img/reflect.png
+  caption: Reflect tab
+
+onboarding_welcome:
+  src: img/onboarding/welcome.png
+  caption: Onboarding welcome page
+
+onboarding_gad:
+  src: img/onboarding/gad.png
+  caption: Onboarding GAD page
+
+onboarding_tutorial:
+  src: img/onboarding/tutorial.png
+  caption: Onboarding tutorial page
+
+onboarding_reminders:
+  src: img/onboarding/reminders.png
+  caption: Onboarding reminder page
+
+onboarding_done:
+  src: img/onboarding/done.png
+  caption: Onboarding complete page
+
+learn_tap:
+  src: img/learn-tap.png
+  caption: User taps reading
+
+reading:
+  src: img/reading.png
+  caption: Reading opens
+
+reading_scrolled:
+  src: img/reading-scrolled.png
+  caption: User scrolls
+
+mood_tap:
+  src: img/mood-tap.png
+  caption: User chooses mood
+
+duration_tap:
+  src: img/duration-tap.png
+  caption: User chooses duration
+
+calming_scene:
+  src: img/calming-scene.png
+  caption: Appropriate relaxation exercise(s) opens
+
+relaxation_reminder_tap:
+  src: img/relaxation-reminder-tap.png
+  caption: User taps reminder icon
+
+relaxation_reminder:
+  src: img/relaxation-reminder.png
+  caption: Time picker opens
+
+reminders_app:
+  src: img/reminders.app.png
+  caption: Reminders.app
+
+calming_scene_exercise:
+  src:
+  - img/calming-scene/1.png
+  - img/calming-scene/3.png
+  - img/calming-scene/4.png
+  caption: Calming Scene Meditation exercise
+
+deep_breathing:
+  src: img/deep-breathing.png
+  caption: Deep breathing exercise
+
+deep_breathing_tap:
+  src: img/deep-breathing-tap.png
+  caption: User taps begin button
+
+deep_breathing_started:
+  src: img/deep-breathing-started.png
+  caption: Exercise begins
+
+guided_meditation:
+  src: img/guided-meditation.png
+  caption: Guided meditation exercise
+
+guided_meditation_tap:
+  src: img/guided-meditation-tap.png
+  caption: User taps play button
+
+guided_meditation_started:
+  src: img/guided-meditation-started.png
+  caption: Exercise begins
+
+coping_statements_exercise:
+  src:
+  - img/coping-statements/1.png
+  - img/coping-statements/2.png
+  caption: Coping statements exercise
+
+reflect_tap:
+  src: img/reflect-tap.png
+  caption: User taps reflect button
+
+new_reflection:
+  src: img/new-reflection.png
+  caption: New reflection screen appears
+
+new_reflection_done:
+  src: img/new-reflection-done.png
+  caption: User taps Done button on keyboard
+
+reflection_added:
+  src: img/reflection-added.png
+  caption: Reflection is added to timeline
+
+reflection_reminder_tap:
+  src: img/reflection-reminder-tap.png
+  caption: User taps reminder icon
+
+reflection_reminder:
+  src: img/reflection-reminder.png
+  caption: Time picker opens
+
+onboarding_reminders_before:
+  src: img/onboarding/reminders.png
+  caption: Onboarding reminder page before testing
+
+onboarding_reminders_after:
+  src: img/updates/onboarding/reminders.png
+  caption: Onboarding reminder page after testing

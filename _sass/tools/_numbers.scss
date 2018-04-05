@@ -1,0 +1,12 @@
+// Numbers
+// =======
+
+@function strip-units($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Replacement for the unwieldiness of CSS's
+// calc() inside Sass
+@function scalc($expr) {
+  @return calc(#{unquote($expr)});
+}

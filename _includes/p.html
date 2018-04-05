@@ -1,0 +1,15 @@
+{%- assign persona = site.data.personas[include.p] -%}
+<div class="media persona">
+  <div class="media__aside">
+    <img src="{{ persona.thumb }}" alt="{{ persona.name }}" class="persona__thumb" />
+  </div>
+  <div class="media__body">
+    <h6>{{ persona.name }}</h6>
+    <ul class="inline-list">
+      {% for c in persona.characteristics %}
+        <li class="persona__characteristic">{{ c }}</li>
+      {% endfor %}
+    </ul>
+    <p class="persona__biography">{{ persona.biography }}</p>
+  </div>
+</div>

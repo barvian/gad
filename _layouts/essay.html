@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{% assign figures = '' %}
+{% assign toc = '' %}
+
+{% comment %} Pre-processing {% endcomment %}
+{% capture essay %}
+  {% assign sections = content | split: '<h2>' %}
+  {{ sections | first }}
+  {% assign length = sections | size | minus: 1 %}
+  {% for s in (1..length) %}
+    {% assign title = sections[s] | split: '</h2>' | first %}
+    {% assign section = sections[s] | split: '</h2>' | last | replace: '%SECTION%', s %}
+    {% assign toc = toc | append: '|' | append: title | append: ':' %}
+    <section class="essay__section" data-section="{{ s }}">
+      <header>
+        <h2 id="{{ s }}">
+          {% comment %}<span class="counter">{{ s }}</span>{% endcomment %}
+          {{ title }}
+        </h2>
+      </header>
+      {% if section contains '<figure' %}
+        {% assign figs = section | replace: '<figure', '-FIGURE-<figure' | remove_first: '-FIGURE-' | split: '-FIGURE-' %}
+        {% capture section %}
+          {% for figure in figs %}
+            {% assign f = forloop.index %}
+            {% assign fig = figure | replace: '%FIGURE%', f %}
+            {% assign counterSplit = fig | split: '-FIGCOUNTER-' %}
+            {% assign figures = figures | append: counterSplit[1] | append: '|' %} 
+            {{ counterSplit[0] }}{{ counterSplit[2] }}
+          {% endfor %}
+        {% endcapture %}
+      {% endif %}
+      {% assign subsections = section | split: '<h3>' %}
+      {{ subsections | first }}
+      {% assign length = subsections | size | minus: 1 %}
+      {% for ss in (1..length) %}
+        {% assign subtitle = subsections[ss] | split: '</h3>' | first %}
+        {% assign toc = toc | append: '--' | append: subtitle %}
+        {% assign subsection = subsections[ss] | split: '</h3>' | last | replace: '%SUBSECTION%', ss %}
+        <section class="essay__subsection" data-subsection="{{ ss }}">
+          <header>
+            <h3 id="{{ s }}.{{ ss }}">
+              {% comment %}<span class="counter">{{ s }}.{{ ss }}</span>{% endcomment %}
+              {{ subtitle }}
+            </h3>
+          </header>
+          {% assign subsubsections = subsection | split: '<h4>' %}
+          {{ subsubsections | first }}
+          {% assign length = subsubsections | size | minus: 1 %}
+          {% for sss in (1..length) %}
+            {% assign subsubtitle = subsubsections[sss] | split: '</h4>' | first %}
+            {% assign subsubsection = subsubsections[sss] | split: '</h4>' | last | replace: '%SUBSUBSECTION%', sss %}
+            <section class="essay__subsubsection" data-subsubsection="{{ sss }}">
+              <header>
+                <h4 id="{{ s }}.{{ ss }}.{{ sss }}">
+                  {% comment %}<span class="counter">{{ s }}.{{ ss }}.{{ sss }}</span>{% endcomment %}
+                  {{ subsubtitle }}
+                </h4>
+              </header>
+              {{ subsubsection | replace: '%SUBSUBSECTION%', sss }}
+            </section>
+          {% endfor %}
+        </section>
+      {% endfor %}
+    </section>
+  {% endfor %}
+{% endcapture %}
+
+{% comment %} Tabs to spaces {% endcomment %}
+{% assign essay = essay | replace: '	', '    ' %}
+
+{% comment %} Figures {% endcomment %}
+{% assign figs = figures | split: '|' %}
+{% for figureKV in site.data.figures %}
+  {% assign f = figureKV[0] %}
+  {% capture ref %}%FIGUREREF-{{ f }}%{% endcapture %}
+  {% for fig in figs %}
+    {% assign id = fig | split: ':' | first %}
+    {% assign figure = fig | split: ':' | last %}
+    {% if id == f %}
+      {% assign essay = essay | replace: ref, figure %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% comment %} References {% endcomment %}
+{% capture references %}{% for reference in site.data.bibliography %}{% assign id = forloop.index | minus: 1 %}{% include r.html r=id %}:{{ id }}|{% endfor %}{% endcapture %}
+
+<article class="essay">
+  <div class="wrapper">
+    {%- capture toc -%}{% include toc.html t=toc %}{%- endcapture -%}
+    {{ essay | replace: '<TOC />', toc  }}
+    <footer class="essay__footer">
+      <h3>Cited References</h3>
+      <ol>
+        {% assign sortedReferences = references | upcase | split: '|' | sort %}
+        {% for ref in sortedReferences %}
+          {% assign id = ref | split: ':' | last | times: 1 %}
+          <li id="reference-{{ id }}">{% include r.html r=id %}</li>
+        {% endfor %}
+      </ol>
+    </footer>
+  </div>
+</article>

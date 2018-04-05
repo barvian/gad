@@ -1,0 +1,8 @@
+title: Anxiety self-help app, by Maxwell Barvian
+description: >
+  A self-help iPhone application for patients with Generalized
+  Anxiety Disorder (GAD).
+baseurl: /gad
+url: http://barvian.me
+kramdown:
+  auto_ids: false

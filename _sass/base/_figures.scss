@@ -1,0 +1,28 @@
+// Figures
+// =======
+
+figure {
+  margin-left: size(spacing) * 2;
+  margin-right: size(spacing) * 2;
+
+  @include vertical(size(spacing) / 2);
+
+  :not(figcaption) a {
+    @include reset-link;
+    display: block;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+figcaption {
+  font-size: size(small);
+
+  .counter {
+    font-family: $sans;
+    font-style: italic;
+    font-weight: 700;
+  }
+}

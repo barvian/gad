@@ -1,0 +1,15 @@
+// Sizes
+// =====
+
+$sizes: () !default;
+
+@function size($s) {
+  @if map-has-key($sizes, $s) {
+    @return ms(map-get($sizes, $s));
+  } @else if (type-of($s) == 'number') {
+    @return $s;
+  } @else {
+    @warn "Oops! Size `#{$s}` does not exist.";
+    @return 0;
+  }
+}

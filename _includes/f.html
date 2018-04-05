@@ -1,0 +1,20 @@
+{%- assign figure = site.data.figures[include.f] -%}
+<figure class="figure {% if include.align %} figure--{{ include.align }}{% endif %}" id="figure-{{ include.f }}">
+  {% if figure.src.last %}{% comment %}is array {% endcomment %}
+    <ul class="grid grid--2 grid--{{ figure.src | size }}@full">
+      {% for img in figure.src %}
+        <li>
+          <a href="{{ img }}"><img src="{{ img }}" alt="{{ figure.caption | escape }}" /></a>
+        </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+    <a href="{{ figure.src }}">
+      <img src="{{ figure.src }}" alt="{{ figure.caption | escape }}" />
+    </a>
+  {% endif %}
+  <figcaption class="figure__caption">
+    <span class="counter">%SECTION%.%FIGURE%</span>
+    {{ figure.caption }}
+  </figcaption>
+</figure>-FIGCOUNTER-{{ include.f }}:%SECTION%.%FIGURE%-FIGCOUNTER-

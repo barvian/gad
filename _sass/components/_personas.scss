@@ -1,0 +1,23 @@
+// Personas
+// ========
+
+.persona {
+}
+
+.persona__thumb {
+  border-radius: 100%;
+  height: size(xxlarge);
+  width: size(xxlarge);
+}
+
+.persona__characteristic {
+  border: 1px solid $light;
+  border-radius: 100em;
+  font-size: size(small);
+  padding: size(spacing)/4 size(spacing)/2 size(spacing)/4+0.25;
+  white-space: nowrap;
+}
+
+.persona__biography {
+  font-size: size(small);
+}

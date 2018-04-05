@@ -1,0 +1,76 @@
+// Lists
+// =====
+
+// Block list
+// ----------
+
+.block-list {
+  @include reset-list;
+  @media #{$full} {
+    padding: size(spacing);
+  }
+
+  > li + li {
+    border-top: 1px dashed $light;
+    padding-top: size(spacing);
+  }
+}
+
+// Inline list
+// -----------
+
+.inline-list {
+  @include reset-list;
+  @include leading(0);
+
+  > li {
+    display: inline-block;
+    margin-right: size(spacing) / 2;
+    margin-top: size(spacing) / 2;
+  }
+}
+
+// Numbered list
+// -------------
+
+.numbered-list {
+  counter-reset: ol;
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    counter-increment: ol;
+    position: relative;
+
+    &::before {
+      @extend %h5;
+
+      content: counter(ol)'.';
+      display: inline-block;
+      margin-right: 0.25em;
+
+      @media #{$full} {
+        border-right: 1.5px solid $dark;
+        content: counter(ol, decimal-leading-zero);
+        margin-right: size(spacing)*.65;
+        position: absolute;
+        right: 100%;
+        text-align: left;
+        top: 0;
+        width: size(spacing)*1.35;
+      }
+    }
+
+    > %heading:first-child {
+      display: inline;
+
+      @media #{$full} {
+        display: block;
+      }
+    }
+  }
+  
+  @media #{$full} {
+    padding-left: size(spacing) * 2;
+  }
+}

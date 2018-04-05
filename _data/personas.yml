@@ -1,0 +1,31 @@
+- name: Guii Pontes
+  thumb: img/personas/guii-pontes.jpg
+  characteristics:
+  - 23 years old
+  - Marketing graduate
+  - Hobbyist golfer
+  biography: Guii started struggling with anxiety after a recent breakup. He's starting to see a new person and although they're enjoying their time together, he struggles with negative self-talk and worrying that she’ll stop talking to him. He's started to lose sleep and now seeks a tool to help him relax so he can focus in his relationships and at work.
+
+- name: Chloe Park
+  thumb: img/personas/chloe-park.jpg
+  characteristics:
+  - 21 years old
+  - Design student
+  - Avid reader
+  biography: Chloe has dealt with anxiety in one form or another for a few years now, though she rarely talks about it with any of her close friends or family members because she’s ashamed to admit how she feels.  Recently, however, she’s finding it harder to not get agitated at little details and other’s behaviors, which are detracting from her relationships with people she truly cares about. She’s determined to take action into her own hands.
+
+- name: Aaron Boyd
+  thumb: img/personas/aaron-boyd.jpg
+  characteristics: 
+  - 46 years old
+  - Architect
+  - Music lover
+  biography: Aaron’s recent loss of a best friend in a tragic car accident has started making him anxious when his wife or teenage daughter get behind the wheel.  He understands this fear is somewhat irrational, and would like to minimize his episodes of catastrophizing whilst remaining aware of the dangers of driving and doing his best to keep his family safe.
+
+- name: Lucy Chen
+  thumb: img/personas/lucy-chen.jpg
+  characteristics: 
+  - 32 years old
+  - Analyst
+  - Amateur gamer
+  biography: Lucy has never identified as an anxious person, but recently started feeling discontent in everyday life and attributes this to her incessant worrying about being judged by those around her.  She’s tried self-help applications before but either dismissed them as irrelevant or forgot about them entirely.  Regardless, she’d like to become more aware of these thought patterns to prevent them from impacting her behavior in social situations and at work.

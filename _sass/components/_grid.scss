@@ -1,0 +1,41 @@
+// Grid
+// ====
+
+.grid {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -1 * size(spacing);
+  margin-top: -1 * size(spacing);
+  
+  @include compact;
+  @include reset-list;
+  @include leading(0);
+
+  > * {
+    padding-left: size(spacing);
+    padding-top: size(spacing);
+
+    > figure {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+$grid-max-columns: 6;
+
+@mixin grid-variants($postfix: null) {
+  @for $variant from 1 through $grid-max-columns {
+    .grid--#{$variant}#{$postfix} {
+      > * {
+        width: 100% / $variant;
+      }
+    }
+  }
+}
+
+@include grid-variants();
+@media #{$full} {
+  @include grid-variants("\\@full");
+}

@@ -1,0 +1,11 @@
+// Resets
+// =====
+
+@mixin reset-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+@mixin reset-link {
+  border-bottom: none !important;
+}

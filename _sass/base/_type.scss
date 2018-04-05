@@ -1,0 +1,86 @@
+// Type
+// ====
+
+:root {
+  color: $dark;
+  font-family: $serif;
+  font-size: $ms-base;
+  font-weight: 400;
+  line-height: strip-units(size(spacing));
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+// --------
+
+%heading {
+  color: $black;
+  font-family: $sans;
+  font-weight: 700;
+  line-height: strip-units(size(medium));
+  position: relative;
+}
+
+%h1, %h2, %h3, %h4, %h5, %h6 {
+  @extend %heading;
+}
+
+%h1, %h2 {
+  font-size: size(ms(5));
+
+  @media #{$full} {
+    font-size: size(xlarge);
+  }
+}
+
+%h3 {
+  font-size: size(ms(2));
+
+  @media #{$full} {
+    font-size: size(large);
+  }
+}
+
+%h4 {
+  font-size: size(medium);
+}
+
+%h5 {
+  font-size: size(base);
+
+  @include trailing(size(base));
+}
+
+%h6 {
+  font-size: size(small);
+  line-height: strip-units(size(spacing));
+
+  @include trailing(size(small));
+}
+
+h1 { @extend %h1; }
+h2 { @extend %h2; }
+h3 { @extend %h3; }
+h4 { @extend %h4; }
+h5 { @extend %h5; }
+h6 { @extend %h6; }
+
+// Misc
+// ----
+
+.meta {
+  font-family: $sans;
+  font-size: ms(1);
+  color: darken($light, 10%);
+}
+
+cite {
+  word-wrap: break-word; // these can include URLs
+}

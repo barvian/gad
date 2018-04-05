@@ -1,0 +1,40 @@
+{%- capture c -%}
+  {% assign reference = site.data.bibliography[include.r] %}
+
+  {% capture author %}
+    {% if reference.authors %}
+      {% if reference.authors.size == 1 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+      {% elsif reference.authors.size == 2 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+        &#32;and&#32;
+        {{ reference.authors[1] | split: ' ' | last | remove: '.' }}
+      {% elsif reference.authors.size > 2 %}
+        {{ reference.authors[0] | split: ' ' | last | remove: '.' }}
+        &#32;et&#32;al.
+      {% endif %}
+    {% elsif reference.title %}
+      {{ reference.title | replace: ' ', '&#32;' }}
+    {% endif %}
+  {% endcapture %}
+  {% capture year %}
+    {% if reference.year %}
+      {{ reference.year }}
+    {% elsif reference.type == 'web' and reference.accessed %}
+      {{ reference.accessed }}
+    {% endif %}
+  {% endcapture %}
+
+  {% if include.a != false and author %}
+    {{ author }}
+  {% endif %}
+  {% if include.a != false and include.y != false %}&#32;{% endif %}
+  {% if include.y != false and year %}
+    {{ year }}
+  {% endif %}
+  {% if include.p %}
+    {% if include.a != false or include.y != false %},&#32;{% endif %}
+    p&#32;{{ include.p }}
+  {% endif %}
+{%- endcapture -%}
+<cite>(<a href="#reference-{{ include.r }}">{{ c | strip_newlines | remove: ' ' }}</a>)</cite>

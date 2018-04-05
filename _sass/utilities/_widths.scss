@@ -1,0 +1,19 @@
+// Widths
+// ======
+
+$columns: 6;
+
+@mixin widths($prefix: null) {
+  @for $denom from 1 through $columns {
+    @for $num from 1 through $denom {
+      .#{$prefix}w#{$num}\/#{$denom} {
+        width: percentage($num/$denom);
+      }
+    }
+  }
+}
+
+@include widths();
+@media #{$full} {
+  @include widths("full-");
+}
